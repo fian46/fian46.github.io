@@ -7,51 +7,44 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Roboto',sans-serif; line-height:1.6; color:#fff; background:#0e0f12; scroll-behavior:smooth; overflow-x:hidden;}
+body{font-family:'Roboto',sans-serif; line-height:1.6; color:#fff; background:#0e0f12; scroll-behavior:smooth;}
 a{text-decoration:none;}
 
 /* Header */
 header{position:sticky;top:0; z-index:1000; background:#0d0e13; padding:1rem; display:flex; justify-content:center;}
 header nav a{margin:0 15px; color:#fff; font-weight:500; transition:0.3s;}
-header nav a:hover{color:#ff00ff;}
+header nav a:hover{color:#ffdd00;}
 
 /* Hero */
 .hero{position:relative; height:90vh; display:flex; justify-content:center; align-items:center; text-align:center; overflow:hidden;}
 .hero video{position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; filter:brightness(0.5);}
 .hero-content{position:relative; z-index:2; max-width:800px;}
-.hero h1{font-size:3rem; margin-bottom:1rem; text-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff,0 0 40px #ff00ff;}
-.hero h1 span{border-right:2px solid #ff00ff; padding-right:2px;}
-.hero p{font-size:1.2rem; margin-bottom:2rem; text-shadow:0 0 5px #ff00ff;}
-.hero .btn{background:#ff00ff; color:#0d0e13; padding:1rem 2rem; font-weight:700; border-radius:10px; font-size:1.2rem; transition:0.3s; box-shadow:0 0 10px #ff00ff;}
-.hero .btn:hover{background:#ff66ff; transform:scale(1.05); box-shadow:0 0 20px #ff66ff;}
+.hero h1{font-size:3rem; margin-bottom:1rem; text-shadow:0 0 10px #ffdd00,0 0 20px #ffdd00,0 0 40px #ffdd00;}
+.hero h1 span{border-right:2px solid #ffdd00; padding-right:2px;}
+.hero p{font-size:1.2rem; margin-bottom:2rem; text-shadow:0 0 5px #ffdd00;}
+.hero .btn{background:#ffdd00; color:#0d0e13; padding:1rem 2rem; font-weight:700; border-radius:10px; font-size:1.2rem; transition:0.3s; box-shadow:0 0 10px #ffdd00;}
+.hero .btn:hover{background:#ffc700; transform:scale(1.05); box-shadow:0 0 20px #ffc700;}
 
 /* Container Sections */
 .container{max-width:1000px; margin:2rem auto; padding:0 2rem;}
-h2{font-size:2rem; margin-bottom:1rem; border-bottom:3px solid #ff00ff; display:inline-block; padding-bottom:0.3rem; color:#ff00ff;}
+h2{font-size:2rem; margin-bottom:1rem; border-bottom:3px solid #ffdd00; display:inline-block; padding-bottom:0.3rem; color:#ffdd00;}
 p{margin-bottom:1rem; color:#ccc;}
 
 /* Fade-in scroll */
 .fade-in{opacity:0; transform:translateY(20px); transition:opacity 0.8s ease-out, transform 0.8s ease-out;}
 .fade-in.visible{opacity:1; transform:translateY(0);}
 
-/* Game Slider */
-.slider-container{position:relative; margin-top:1rem; overflow:hidden;}
-.slider-wrapper{display:flex; transition:transform 0.5s ease-in-out;}
-.slider-item{min-width:300px; margin-right:1rem; background:#1a1b22; padding:1.5rem; border-radius:15px; border:1px solid #333; box-shadow:0 0 15px rgba(255,0,255,0.5); flex-shrink:0; transition:all 0.3s;}
-.slider-item:hover{transform:scale(1.05) translateY(-5px); box-shadow:0 0 25px #ff00ff;}
-.slider-item a{color:#ff00ff; font-weight:600; font-size:1.2rem; text-shadow:0 0 5px #ff00ff;}
-.slider-item p{color:#ccc; margin:0.5rem 0 1rem;}
-.slider-item .btn{display:inline-block; padding:0.5rem 1.2rem; background:#ff00ff; color:#0d0e13; border-radius:8px; font-weight:500; transition:0.3s; box-shadow:0 0 10px #ff00ff;}
-.slider-item .btn:hover{background:#ff66ff; transform:scale(1.05); box-shadow:0 0 20px #ff66ff;}
-
-/* Slider arrows */
-.slider-arrow{position:absolute; top:50%; transform:translateY(-50%); font-size:2rem; color:#ff00ff; background:rgba(0,0,0,0.3); border:none; cursor:pointer; padding:0.3rem 0.7rem; border-radius:50%; z-index:10; transition:0.3s;}
-.slider-arrow:hover{background:rgba(0,0,0,0.6);}
-.arrow-left{left:10px;}
-.arrow-right{right:10px;}
+/* Game list vertical */
+.game-list{display:flex; flex-direction:column; gap:20px;}
+.game-item{background:#1a1a1a; padding:1.5rem; border-radius:15px; border:1px solid #333; box-shadow:0 0 15px rgba(255,221,0,0.3); transition:all 0.3s;}
+.game-item:hover{transform:scale(1.02) translateY(-3px); box-shadow:0 0 25px #ffc700;}
+.game-item a{color:#ffdd00; font-weight:600; font-size:1.2rem; text-shadow:0 0 5px #ffdd00;}
+.game-item p{color:#ccc; margin:0.5rem 0 1rem;}
+.game-item .btn{display:inline-block; padding:0.5rem 1.2rem; background:#ffdd00; color:#0d0e13; border-radius:8px; font-weight:500; transition:0.3s; box-shadow:0 0 10px #ffdd00;}
+.game-item .btn:hover{background:#ffc700; transform:scale(1.05); box-shadow:0 0 20px #ffc700;}
 
 /* Contact */
-#contact a{color:#ff00ff;}
+#contact a{color:#ffdd00;}
 #contact a:hover{text-decoration:underline;}
 
 /* Footer */
@@ -61,7 +54,6 @@ footer{text-align:center; padding:1.5rem; background:#0d0e13; color:#fff; font-s
 @media(max-width:600px){
 .hero h1{font-size:2rem;}
 .hero p{font-size:1rem;}
-.slider-item{min-width:250px;}
 }
 </style>
 </head>
@@ -94,26 +86,22 @@ footer{text-align:center; padding:1.5rem; background:#0d0e13; color:#fff; font-s
 
   <section id="games" class="fade-in" style="margin-top:2rem;">
     <h2>Game Kami</h2>
-    <div class="slider-container">
-      <button class="slider-arrow arrow-left">&#10094;</button>
-      <div class="slider-wrapper">
-        <div class="slider-item">
-          <a href="#"><strong>Jadi Juragan</strong></a>
-          <p>Tycoon mobile yang memungkinkan pemain membangun dan mengembangkan usaha dari nol hingga sukses.</p>
-          <a href="#" class="btn">Mainkan Sekarang</a>
-        </div>
-        <div class="slider-item">
-          <a href="/game-pameran"><strong>Game Pameran Diskominfo 2025</strong></a>
-          <p>Game edukasi interaktif untuk membedakan hoaks dan fakta melalui gameplay menyenangkan.</p>
-          <a href="/game-pameran" class="btn">Mainkan Sekarang</a>
-        </div>
-        <div class="slider-item">
-          <a href="#"><strong>Coming Soon</strong></a>
-          <p>Game baru dalam pengembangan, siap menghadirkan gameplay inovatif dan seru.</p>
-          <a href="#" class="btn">Pantau Sekarang</a>
-        </div>
+    <div class="game-list">
+      <div class="game-item">
+        <a href="#"><strong>Jadi Juragan</strong></a>
+        <p>Tycoon mobile yang memungkinkan pemain membangun dan mengembangkan usaha dari nol hingga sukses.</p>
+        <a href="#" class="btn">Mainkan Sekarang</a>
       </div>
-      <button class="slider-arrow arrow-right">&#10095;</button>
+      <div class="game-item">
+        <a href="/game-pameran"><strong>Game Pameran Diskominfo 2025</strong></a>
+        <p>Game edukasi interaktif untuk membedakan hoaks dan fakta melalui gameplay menyenangkan.</p>
+        <a href="/game-pameran" class="btn">Mainkan Sekarang</a>
+      </div>
+      <div class="game-item">
+        <a href="#"><strong>Coming Soon</strong></a>
+        <p>Game baru dalam pengembangan, siap menghadirkan gameplay inovatif dan seru.</p>
+        <a href="#" class="btn">Pantau Sekarang</a>
+      </div>
     </div>
   </section>
 
@@ -129,46 +117,32 @@ footer{text-align:center; padding:1.5rem; background:#0d0e13; color:#fff; font-s
 </footer>
 
 <script>
-// Typing effect
-const text = "Menghadirkan Game Indie... Seru & Inovatif!";
-let i=0;
-function typing(){
-  if(i<text.length){
-    document.getElementById('typing').innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing,100);
-  }
-}
-typing();
-
-// Fade-in scroll animation
-const faders=document.querySelectorAll('.fade-in');
-const appearOptions={threshold:0.2};
-const appearOnScroll=new IntersectionObserver(function(entries,observer){
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+document.addEventListener('DOMContentLoaded', function(){
+  // Typing effect
+  const text = "Menghadirkan Game Indie... Seru & Inovatif!";
+  let i=0;
+  function typing(){
+    if(i<text.length){
+      document.getElementById('typing').innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing,100);
     }
-  });
-},appearOptions);
-faders.forEach(fader=>appearOnScroll.observe(fader));
+  }
+  typing();
 
-// Slider functionality
-const wrapper=document.querySelector('.slider-wrapper');
-const left=document.querySelector('.arrow-left');
-const right=document.querySelector('.arrow-right');
-let index=0;
-right.addEventListener('click',()=>{slide(1);});
-left.addEventListener('click',()=>{slide(-1);});
-function slide(dir){
-  const items=document.querySelectorAll('.slider-item');
-  index+=dir;
-  if(index<0) index=items.length-1;
-  if(index>=items.length) index=0;
-  const offset=-index*(items[0].offsetWidth+16);
-  wrapper.style.transform=`translateX(${offset}px)`;
-}
+  // Fade-in scroll animation
+  const faders=document.querySelectorAll('.fade-in');
+  const appearOptions={threshold:0.2};
+  const appearOnScroll=new IntersectionObserver(function(entries,observer){
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },appearOptions);
+  faders.forEach(fader=>appearOnScroll.observe(fader));
+});
 </script>
 
 </body>
