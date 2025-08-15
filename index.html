@@ -1,93 +1,175 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Misogear Studio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 1rem;
-      background: #fff;
-    }
-    h1, h2 {
-      margin-top: 0;
-    }
-    .game-list {
-      list-style: none;
-      padding: 0;
-    }
-    .game-list li {
-      background: #f9f9f9;
-      margin: 0.5rem 0;
-      padding: 0.5rem;
-      border: 1px solid #ddd;
-    }
-    .game-list a {
-      text-decoration: none;
-      color: #0066cc;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #333;
-      color: #fff;
-      margin-top: 1rem;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Misogear Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Roboto',sans-serif; line-height:1.6; color:#fff; background:#0e0f12; scroll-behavior:smooth; overflow-x:hidden;}
+a{text-decoration:none;}
+
+/* Header */
+header{position:sticky;top:0; z-index:1000; background:#0d0e13; padding:1rem; display:flex; justify-content:center;}
+header nav a{margin:0 15px; color:#fff; font-weight:500; transition:0.3s;}
+header nav a:hover{color:#ff00ff;}
+
+/* Hero */
+.hero{position:relative; height:90vh; display:flex; justify-content:center; align-items:center; text-align:center; overflow:hidden;}
+.hero video{position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; filter:brightness(0.5);}
+.hero-content{position:relative; z-index:2; max-width:800px;}
+.hero h1{font-size:3rem; margin-bottom:1rem; text-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff,0 0 40px #ff00ff;}
+.hero h1 span{border-right:2px solid #ff00ff; padding-right:2px;}
+.hero p{font-size:1.2rem; margin-bottom:2rem; text-shadow:0 0 5px #ff00ff;}
+.hero .btn{background:#ff00ff; color:#0d0e13; padding:1rem 2rem; font-weight:700; border-radius:10px; font-size:1.2rem; transition:0.3s; box-shadow:0 0 10px #ff00ff;}
+.hero .btn:hover{background:#ff66ff; transform:scale(1.05); box-shadow:0 0 20px #ff66ff;}
+
+/* Container Sections */
+.container{max-width:1000px; margin:2rem auto; padding:0 2rem;}
+h2{font-size:2rem; margin-bottom:1rem; border-bottom:3px solid #ff00ff; display:inline-block; padding-bottom:0.3rem; color:#ff00ff;}
+p{margin-bottom:1rem; color:#ccc;}
+
+/* Fade-in scroll */
+.fade-in{opacity:0; transform:translateY(20px); transition:opacity 0.8s ease-out, transform 0.8s ease-out;}
+.fade-in.visible{opacity:1; transform:translateY(0);}
+
+/* Game Slider */
+.slider-container{position:relative; margin-top:1rem; overflow:hidden;}
+.slider-wrapper{display:flex; transition:transform 0.5s ease-in-out;}
+.slider-item{min-width:300px; margin-right:1rem; background:#1a1b22; padding:1.5rem; border-radius:15px; border:1px solid #333; box-shadow:0 0 15px rgba(255,0,255,0.5); flex-shrink:0; transition:all 0.3s;}
+.slider-item:hover{transform:scale(1.05) translateY(-5px); box-shadow:0 0 25px #ff00ff;}
+.slider-item a{color:#ff00ff; font-weight:600; font-size:1.2rem; text-shadow:0 0 5px #ff00ff;}
+.slider-item p{color:#ccc; margin:0.5rem 0 1rem;}
+.slider-item .btn{display:inline-block; padding:0.5rem 1.2rem; background:#ff00ff; color:#0d0e13; border-radius:8px; font-weight:500; transition:0.3s; box-shadow:0 0 10px #ff00ff;}
+.slider-item .btn:hover{background:#ff66ff; transform:scale(1.05); box-shadow:0 0 20px #ff66ff;}
+
+/* Slider arrows */
+.slider-arrow{position:absolute; top:50%; transform:translateY(-50%); font-size:2rem; color:#ff00ff; background:rgba(0,0,0,0.3); border:none; cursor:pointer; padding:0.3rem 0.7rem; border-radius:50%; z-index:10; transition:0.3s;}
+.slider-arrow:hover{background:rgba(0,0,0,0.6);}
+.arrow-left{left:10px;}
+.arrow-right{right:10px;}
+
+/* Contact */
+#contact a{color:#ff00ff;}
+#contact a:hover{text-decoration:underline;}
+
+/* Footer */
+footer{text-align:center; padding:1.5rem; background:#0d0e13; color:#fff; font-size:0.9rem;}
+
+/* Responsive */
+@media(max-width:600px){
+.hero h1{font-size:2rem;}
+.hero p{font-size:1rem;}
+.slider-item{min-width:250px;}
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>Misogear Studio</h1>
-    <nav>
-      <a href="#about">Tentang</a>
-      <a href="#games">Game</a>
-      <a href="#contact">Kontak</a>
-    </nav>
-  </header>
 
-  <div class="container">
-    <section id="about">
-      <h2>Tentang Kami</h2>
-      <p>Misogear adalah studio game indie yang fokus pada gameplay menyenangkan dan cerita yang menarik.</p>
-    </section>
+<header>
+  <nav>
+    <a href="#about">Tentang</a>
+    <a href="#games">Game</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+</header>
 
-    <section id="games">
-      <h2>Game Kami</h2>
-      <ul class="game-list">
-        <li><a href="#"><strong>Jadi Juragan</strong></a> - Tycoon mobile untuk membangun usaha.</li>
-        <li><a href="/game-pameran"><strong>Game Pameran Diskominfo 2025</strong></a> - Game edukasi tebak hoaks vs fakta.</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Kontak</h2>
-      <p>Email: fian.manafe46@gmail.com</p>
-      <p>Alamat: Kupang, Nusa Tenggara Timur</p>
-    </section>
+<section class="hero">
+  <video autoplay muted loop>
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h1><span id="typing"></span></h1>
+    <p>Menghadirkan game indie berkualitas dengan gameplay seru dan cerita menarik.</p>
+    <a href="#games" class="btn">Mainkan Sekarang</a>
   </div>
+</section>
 
-  <footer>
-    <p>© 2025 Misogear Studio</p>
-  </footer>
+<div class="container">
+  <section id="about" class="fade-in">
+    <h2>Tentang Kami</h2>
+    <p>Misogear Studio adalah pengembang game indie profesional yang fokus pada kualitas gameplay, cerita menarik, dan pengalaman bermain tak terlupakan. Kami berkomitmen menciptakan game inovatif untuk berbagai platform.</p>
+  </section>
+
+  <section id="games" class="fade-in" style="margin-top:2rem;">
+    <h2>Game Kami</h2>
+    <div class="slider-container">
+      <button class="slider-arrow arrow-left">&#10094;</button>
+      <div class="slider-wrapper">
+        <div class="slider-item">
+          <a href="#"><strong>Jadi Juragan</strong></a>
+          <p>Tycoon mobile yang memungkinkan pemain membangun dan mengembangkan usaha dari nol hingga sukses.</p>
+          <a href="#" class="btn">Mainkan Sekarang</a>
+        </div>
+        <div class="slider-item">
+          <a href="/game-pameran"><strong>Game Pameran Diskominfo 2025</strong></a>
+          <p>Game edukasi interaktif untuk membedakan hoaks dan fakta melalui gameplay menyenangkan.</p>
+          <a href="/game-pameran" class="btn">Mainkan Sekarang</a>
+        </div>
+        <div class="slider-item">
+          <a href="#"><strong>Coming Soon</strong></a>
+          <p>Game baru dalam pengembangan, siap menghadirkan gameplay inovatif dan seru.</p>
+          <a href="#" class="btn">Pantau Sekarang</a>
+        </div>
+      </div>
+      <button class="slider-arrow arrow-right">&#10095;</button>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in" style="margin-top:2rem;">
+    <h2>Kontak</h2>
+    <p>Email: <a href="mailto:fian.manafe46@gmail.com">fian.manafe46@gmail.com</a></p>
+    <p>Alamat: Kupang, Nusa Tenggara Timur</p>
+  </section>
+</div>
+
+<footer>
+  <p>© 2025 Misogear Studio. All Rights Reserved.</p>
+</footer>
+
+<script>
+// Typing effect
+const text = "Menghadirkan Game Indie... Seru & Inovatif!";
+let i=0;
+function typing(){
+  if(i<text.length){
+    document.getElementById('typing').innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing,100);
+  }
+}
+typing();
+
+// Fade-in scroll animation
+const faders=document.querySelectorAll('.fade-in');
+const appearOptions={threshold:0.2};
+const appearOnScroll=new IntersectionObserver(function(entries,observer){
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},appearOptions);
+faders.forEach(fader=>appearOnScroll.observe(fader));
+
+// Slider functionality
+const wrapper=document.querySelector('.slider-wrapper');
+const left=document.querySelector('.arrow-left');
+const right=document.querySelector('.arrow-right');
+let index=0;
+right.addEventListener('click',()=>{slide(1);});
+left.addEventListener('click',()=>{slide(-1);});
+function slide(dir){
+  const items=document.querySelectorAll('.slider-item');
+  index+=dir;
+  if(index<0) index=items.length-1;
+  if(index>=items.length) index=0;
+  const offset=-index*(items[0].offsetWidth+16);
+  wrapper.style.transform=`translateX(${offset}px)`;
+}
+</script>
+
 </body>
 </html>
